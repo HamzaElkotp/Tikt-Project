@@ -84,8 +84,38 @@
     --red: #ff0000;
 }
 
+/* #F8F6F4
+#F6F1F1
+#AFD3E2
+#19A7CE
+#146C94 
+#024f73 
+*/
+
+i{
+    padding-right: 5px !important;
+}
+button{
+    font-size: 17px !important;
+    font-weight: 600 !important;
+}
+.button.cus{
+    background-color: #19A7CE !important;
+}
+p.cus,h1.cus,a.cus,h2.cus,span.cus,h3.cus,h5.cus,h4.cus,h6.cus{
+    color: #146C94;
+}
+label.cus{
+    color: #024f73;
+    font-weight: 600;
+}
+input::placeholder{
+    color: #024f73 !important;
+    font-weight: 500;
+}
+
 html, body {
-    background-color: var(--grey75) !important;
+    background-color: #F8F6F4 !important;
     overflow-x: hidden !important;
 }
 

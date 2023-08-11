@@ -13,32 +13,67 @@
 
 <body>
 
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <img src="/assets/imgs/logo.png" alt="Logo">
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary cus" href="/login.html"><i class="fa-regular fa-user"></i> Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <section class="section">
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-5">
-                    <h1 class="title">Login</h1>
+                    <h1 class="title cus">Join</h1>
                     <form id="loginForm">
                         <div class="field">
-                            <label class="label">Email</label>
+                            <label class="label cus">Name</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Enter your Email">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label cus">Email</label cus>
                             <div class="control">
                                 <input class="input" type="email" placeholder="Enter your Email">
                             </div>
                         </div>
 
                         <div class="field">
-                            <label class="label">Password</label>
+                            <label class="label cus">Password</label>
                             <div class="control">
                                 <input class="input" type="password" placeholder="Enter your password">
                             </div>
                         </div>
 
                         <div class="field">
+                            <label class="label cus">Type</label>
                             <div class="control">
-                                <button class="button is-primary">Login</button>
+                                <div class="select is-fullwidth">
+                                    <select id="type">
+                                        <option value="student">Student</option>
+                                        <option value="Admin">club owner</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <p class="is-hidden" id="info">Enter the login data correct</p>
+
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary cus is-fullwidth">Register</button>
+                            </div>
+                        </div>
+                        <p class="is-hidden cus has-text-centered" id="info">This account is exists</p>
                     </form>
                 </div>
             </div>
@@ -58,16 +93,21 @@
         loginForm.addEventListener('submit', async function (event) {
             event.preventDefault();
 
+            const name = loginForm.querySelector('input[type="text"]').value;
             const email = loginForm.querySelector('input[type="email"]').value;
             const password = loginForm.querySelector('input[type="password"]').value;
+            const type = loginForm.querySelector('#type').value;
+
 
             const formData = {
+                name: name,
                 email: email,
-                password: password
+                password: password,
+                type: type
             };
 
             try {
-                const response = await fetch('/login', { // nooooote Heeerrrre, put endpoint of database to check for the account type
+                const response = await fetch('/register', { // nooooote Heeerrrre, put endpoint of database to check for the account type
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -77,14 +117,12 @@
 
                 if (response.ok) {
                     const data = await response.json();
-                    
-                    if(data.type == "student"){
-                        // redirect to the home page of the club
-                    }else if(data.type == "admin"){
-                        // redirect to the dashboard
-                    }else{
+
+                    if (data.exists == true) {
                         let info = document.getElementById("info");
-                        info.classList.remove("is-hidden")
+                        info.classList.remove("is-hidden");
+                    } else {
+                        // redirect to the dashboard / home page
                     }
                 } else {
                     console.error('Request failed:', response.status, response.statusText);
