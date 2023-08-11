@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Tajawal:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    /* Font Sizes */
+    --fsize10: 10.24px;
+    --fsize12: 12.8px;
+    --fsize14: 14px;
+    --fsize16: 16px;
+    --fsize18: 18px;
+    --fsize20: 20px;
+    --fsize25: 25px;
+    --fsize31: 31.25px;
+    --fsize39: 39.0.6px;
+    --fsize48: 48.83px;
+
+    --whiteBg: #fff;
+    --grey05: #fdfefe;
+    --grey10: #fbfcfc;
+    --grey20: #f9f9f9;
+    --grey30: #f7f9f9;
+    --grey40: #f4f6f7;
+    --grey50: #f0f3f4;
+    --grey60: #f4f6f6;
+    --grey70: #f2f4f4;
+    --grey75: #f2f2f2;
+    --grey80: #ebedef;
+    --grey90: #ebedef;
+    --grey100: #eaecee;
+
+    --yellow95: #ba8642;
+    --yellow90: #c79a52;
+    --yellow85: #d4ae62;
+    --yellow85: #d8b36d;
+    --yellow80: #dcc079;
+    --yellow70: #e0c585;
+    --yellow60: #e4ca91;
+    --yellow50: #e8cf9d;
+    --yellow40: #edd4a8;
+    --yellow30: #f1d9b4;
+    --yellow20: #f5dec0;
+    --yellow10: #f9e3cc;
+    --yellow09: #f0e0cb;
+    --yellow08: #f3e9db;
+    --yellow07: #f9edde;
+    --yellow06: #f9f3ec;
+
+    --purple90: #401c3e;
+    --purple80: #4a234b;
+    --purple70: #532b59;
+    --purple60: #5d3266;
+    --purple50: #673974;
+    --purple40: #704081;
+    --purple30: #7a488f;
+    --purple20: #83509d;
+    --purple10: #8d58ab;
+
+    --purple09: #9162b4;
+    --purple08: #956cbf;
+    --purple07: #9976c8;
+    --purple06: #9d80d2;
+    --purple05: #a18adc;
+    --purple04: #a595e6;
+    --purple03: #a99fef;
+    --purple02: #adaafa;
+    --purple01: #b1b4ff;
+
+    --purpleWhite90: #a385be;
+    --purpleWhite80: #b2a2cd;
+    --purpleWhite70: #c0bfe0;
+    --purpleWhite60: #cedcfa;
+    --purpleWhite50: #dbd8ff;
+    --purpleWhite40: #e8e5ff;
+    --purpleWhite30: #f5f3ff;
+    --purpleWhite20: #f8f7ff;
+    --purpleWhite10: #fcfcff;
+
+
+    --gradientP19: linear-gradient(to right, var(--purple60), var(--purple90));
+    --gradientP18D: linear-gradient(to right, var(--purple40), var(--purple60));
+    /* --gradientY19D: linear-gradient(to bottom, var(--yellow10), var(--yellow90));
+    --gradientY16: linear-gradient(to right, var(--yellow10), var(--yellow60));
+    --gradientY16D: linear-gradient(to bottom, var(--yellow10), var(--yellow60)); */
+
+    --red: #ff0000;
+}
+
+html, body {
+    background-color: var(--grey75) !important;
+    overflow-x: hidden !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+*:not(i), body, button, input, textarea, .option, h1,h2,h3,h4,h5,h6,p,a, label {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+ul, li {
+    list-style: none;
+}
+
+i {
+    padding: 0px;
+}
+
+.list {
+    padding-right: 18px;
+}
+
+.list li {
+    list-style: decimal !important;
+}
+
+.button.none{
+    background: transparent;
+    border: none;
+}
+
+
+
+
+
+

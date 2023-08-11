@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tikt</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/style/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/style/bulma.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/style/all.min.css'>
+</head>
+
+<body>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5">
+                    <h1 class="title">Login</h1>
+                    <form id="loginForm">
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" type="email" placeholder="Enter your Email">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control">
+                                <input class="input" type="password" placeholder="Enter your password">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary">Login</button>
+                            </div>
+                        </div>
+                        <p class="is-hidden" id="info">Enter the login data correct</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
+<script src='/assets/script/main.js'></script>
+<script>
+    let loginForm = document.getElementById("loginForm");
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const email = loginForm.querySelector('input[type="email"]').value;
+            const password = loginForm.querySelector('input[type="password"]').value;
+
+            const formData = {
+                email: email,
+                password: password
+            };
+
+            try {
+                const response = await fetch('/login', { // nooooote Heeerrrre, put endpoint of database to check for the account type
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if(data.type == "student"){
+                        // redirect to the home page of the club
+                    }else if(data.type == "admin"){
+                        // redirect to the dashboard
+                    }else{
+                        let info = document.getElementById("info");
+                        info.classList.remove("is-hidden")
+                    }
+                } else {
+                    console.error('Request failed:', response.status, response.statusText);
+                }
+            } catch (error) {
+                console.error('Request error:', error);
+            }
+        });
+    });
+
+</script>
